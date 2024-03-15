@@ -1,29 +1,48 @@
+/*
+- Fecha de publicación: 11/03/2024
+- Hora de publicación : 5:00 AM
+- Versión de su código: 1.1
+- Autor: Ing(c) Yigal Fabricio Rojas Acevedo
+- Nombre del lenguaje utilizado: C
+- Versión del lenguaje utilizado : C11
+- Nombre y versión del Sistema Operativo(S.O): Windows 11 23H2
+- Version del compilador utilizado : 6.3.0
+- Presentado a: Doctor Ricardo Moreno Laverde
+- Universidad Tecnológica de Pereira
+- Programa de Ingeniería de Sistemas y Computación
+- Asignatura IS284 Programación II
+- El programa imprime un triangulo isosceles hecho de 'A' en el 
+  lado derecho.
+*/
+
 #include <stdio.h>
 
-void imprimir(int i ,int veces, char a){
-    if ( i == veces ){
+void PrintChar(int i ,int times, char letter){
+    //i guarda el numero de iteraciones que se han hecho
+    //times guarda las veces que se debe PrintChar Letter
+    //letter contiene que caracter debe PrintChar
+    if ( i == times ){
 
     }else{
-        printf("%c",a);
-        imprimir(i +1 , veces, a);
+        printf("%c",letter);
+        PrintChar(i +1 , times, letter);
     }
-}
+} //funcion encargada de ir imprimiendo caracteres
 
-void mantenerCiclo(int i){
+void KeepCycle(int i){
+    //i guarda el numero de iteraciones que se han hecho
     if ( i == 5){}else{
-        imprimir(0,41-i,' ');
-        imprimir(0,i+1,'A');
-        imprimir(0,13+i,' ');
+        PrintChar(0,39-i,' ');
+        PrintChar(0,i+1,'A');
         ( i == 10)?  :printf("\n");
-        mantenerCiclo(i+1);
+        KeepCycle(i+1);
     }
-        imprimir(0,41-i,' ');
-        imprimir(0,i+1,'A');
-        imprimir(0,13+i,' ');
+        PrintChar(0,39-i,' ');
+        PrintChar(0,i+1,'A');
         ( i == 0)?  :printf("\n");
-}
+} //keepCycle es la funcion encargada de repetir una seria de intrucciones la veces que queramos
 
 int main(){
-    mantenerCiclo(0);
+    KeepCycle(0);
     return 0;
 }

@@ -1,33 +1,54 @@
+/*
+- Fecha de publicación: 11/03/2024
+- Hora de publicación : 5:00 AM
+- Versión de su código: 1.1
+- Autor: Ing(c) Yigal Fabricio Rojas Acevedo
+- Nombre del lenguaje utilizado: C
+- Versión del lenguaje utilizado : C11
+- Nombre y versión del Sistema Operativo(S.O): Windows 11 23H2
+- Version del compilador utilizado : 6.3.0
+- Presentado a: Doctor Ricardo Moreno Laverde
+- Universidad Tecnológica de Pereira
+- Programa de Ingeniería de Sistemas y Computación
+- Asignatura IS284 Programación II
+- El programa imprime un rombo de  'Z' por pantalla.
+*/
+
 #include <stdio.h>
 
-void imprimir(int i ,int veces, char a){
-    if ( i == veces ){
+void PrintChar(int i ,int times, char letter){
+    //i guarda el numero de iteraciones que se han hecho
+    //times guarda las veces que se debe imprimir letter
+    //letter contiene que caracter debe imprimir
+    if ( i == times ){
 
     }else{
-        printf("%c",a);
-        imprimir(i +1 , veces, a);
+        printf("%c",letter);
+        PrintChar(i +1 , times, letter);
     }
-}
+} //funcion encargada de ir imprimiendo caracteres
 
-void mantenerCiclo(int i){
+void SaveLines(int i){
+        //i en este caso guarda la letras Z que seran impresas
+        PrintChar(0,9-i,' ');
+        PrintChar(0,i,'Z');
+        PrintChar(0,1,'Z');
+        PrintChar(0,i,'Z');
+        PrintChar(0,0+i,' ');
+} // funcion DRY (Don't Repeat Yourself)
+
+void KeepCycle(int i){
+    //i guarda el numero de iteraciones que se han hecho
     if ( i == 3){}else{
-        imprimir(0,9-i,' ');
-        imprimir(0,i,'Z');
-        imprimir(0,1,'Z');
-        imprimir(0,i,'Z');
-        imprimir(0,0+i,' ');
+        SaveLines(i);
         printf("\n");
-        mantenerCiclo(i+1);
+        KeepCycle(i+1);
     } // recursividad por cola ->
-        imprimir(0,9-i,' ');
-        imprimir(0,i,'Z');
-        imprimir(0,1,'Z');
-        imprimir(0,i,'Z');
-        imprimir(0,0+i,' ');
+        SaveLines(i);
         ( i == 0)?  :printf("\n");
-}
+}//keepCycle es la funcion encargada de repetir una seria de intrucciones la veces que queramos
 
 int main(){
-    mantenerCiclo(0);
+    KeepCycle(0);
     return 0;
 }
